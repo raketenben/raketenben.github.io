@@ -72,7 +72,10 @@
                 if(!commets[j].hit) score++;
                 commets[j].hit = true;
                 shoots.splice(i,1);
-          }}}
+                break;
+                }
+              }
+            }
           draw(pl1,player[0],player[1],0,0.6);
           for (var i = 0; i < commets.length; i++) {
             commets[i].x -= commetSpeed*commets[i].speedModifier;
@@ -80,9 +83,10 @@
             draw(images["commet"+commets[i].hitframe],commets[i].x,commets[i].y,commets[i].angle,commets[i].scale);
             if (commets[i].x < -100) commets.splice(i, 1);
           }
-          for (var i = 0; i < commets.length; i++) { if(player[0] + (images.pl1.width * 0.6 * 0.5) > commets[i].x && player[0] - (images.pl1.width * 0.6 * 0.5) < commets[i].x && player[1] + (images.pl1.height * 0.6 * 0.5) > commets[i].y && player[1] - (images.pl1.height * 0.6 * 0.5) < commets[i].y){
-            alert("F5 zum neustarten");
-            clearInterval(gameloop);
+          for (var i = 0; i < commets.length; i++) {
+            if(player[0] + (images.pl1.width * 0.6 * 0.5) > commets[i].x && player[0] - (images.pl1.width * 0.6 * 0.5) < commets[i].x && player[1] + (images.pl1.height * 0.6 * 0.5) > commets[i].y && player[1] - (images.pl1.height * 0.6 * 0.5) < commets[i].y){
+              alert("F5 zum neustarten");
+              clearInterval(gameloop);
           }}
           ctx.font = "30px monospace";
           ctx.fillStyle = "white";
