@@ -80,8 +80,10 @@
             draw(images["commet"+commets[i].hitframe],commets[i].x,commets[i].y,commets[i].angle,commets[i].scale);
             if (commets[i].x < -100) commets.splice(i, 1);
           }
-          for (var i = 0; i < commets.length; i++) { if(player[0] + (images.pl1.width * 0.6 * 0.5) > commets[i].x && player[0] - (images.pl1.width * 0.6 * 0.5) < commets[i].x && player[1] + (images.pl1.height * 0.6 * 0.5) > commets[i].y && player[1] - (images.pl1.height * 0.6 * 0.5) < commets[i].y){ alert("F5 zum neustarten");
-          clearInterval(gameloop);}}
+          for (var i = 0; i < commets.length; i++) { if(player[0] + (images.pl1.width * 0.6 * 0.5) > commets[i].x && player[0] - (images.pl1.width * 0.6 * 0.5) < commets[i].x && player[1] + (images.pl1.height * 0.6 * 0.5) > commets[i].y && player[1] - (images.pl1.height * 0.6 * 0.5) < commets[i].y){
+            alert("F5 zum neustarten");
+            clearInterval(gameloop);
+          }}
           ctx.font = "30px monospace";
           ctx.fillStyle = "white";
           ctx.fillText(score,20,canvas.height-20);
@@ -96,6 +98,9 @@
           shotsound.play();
         });
         player = [0,window.innerHeight/2];
+        var shotsound = new Audio('./sound/Panoramic-Atoms-1.ogg');
+        shotsound.volume = 0.05;
+        shotsound.play();
       })();
     </script>
   </body>
