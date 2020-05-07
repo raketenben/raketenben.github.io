@@ -37,6 +37,7 @@
         const commetSpeed = 8;
         const angleSpeed = 0.1;
         const shootSpeed = 30;
+        var level = 100;
         var score = 0;
         const images = {bg1:document.getElementById("bg1"),pl1:document.getElementById("pl1"),pl2:document.getElementById("pl2"),shoot1:document.getElementById("shoot1"),commet1:document.getElementById("commet1"),commet2:document.getElementById("commet2"),commet3:document.getElementById("commet3"),commet4:document.getElementById("commet4"),commet5:document.getElementById("commet5"),commet6:document.getElementById("commet6"),commet7:document.getElementById("commet7")}
         var canvas = document.getElementById("canvas");
@@ -56,6 +57,7 @@
           ctx.drawImage(img,-offsetX,-offsetY,w,h);
           ctx.restore();
         }
+        setInterval(function(){level--;},2000);
         setInterval(function(){[pl1,pl2] = [pl2,pl1];},200);
         setInterval(function(){for (var i = 0; i < commets.length; i++) {
           if (commets[i].hit) commets[i].hitframe++;
@@ -91,7 +93,7 @@
           ctx.font = "30px monospace";
           ctx.fillStyle = "white";
           ctx.fillText(score,20,canvas.height-20);
-          if (Math.random()*100<1) commets.push({x:window.innerWidth,y:Math.round(innerHeight*Math.random()),speedModifier:Math.random(),rotationModifier:Math.random(),angle:0,scale:0.4*Math.random()+0.4,hit:false,hitframe:1});
+          if (Math.random()*level<1) commets.push({x:window.innerWidth,y:Math.round(innerHeight*Math.random()),speedModifier:Math.random(),rotationModifier:Math.random(),angle:0,scale:0.4*Math.random()+0.4,hit:false,hitframe:1});
         },1000/fps);
         canvas.width = window.innerWidth, canvas.height = window.innerHeight;
       	document.onmousemove = getCursorXY;
