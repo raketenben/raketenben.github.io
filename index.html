@@ -97,7 +97,7 @@
       	document.onmousemove = getCursorXY;
         document.addEventListener('mousedown', e => {
           shoots.push({x:player[0],y:player[1]});
-          var shotsound = new Audio('');
+          var shotsound = new Audio('./sound/laser.ogg');
           shotsound.volume = 0.05;
           shotsound.play();
         });
