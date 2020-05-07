@@ -31,6 +31,7 @@
     <img src="./bilder/komet-explode-5.png" class="resource" id="commet6">
     <img src="./bilder/komet-explode-6.png" class="resource" id="commet7">
     <img src="./bilder/shoot-1.png" class="resource" id="shoot1">
+    <audio controls autoplay loop><source src="./sound/Panoramic-Atoms-1.ogg" type="audio/ogg"></audio>
     <script type="text/javascript">
       (function(){
         const fps = 60;
@@ -93,14 +94,11 @@
       	document.onmousemove = getCursorXY;
         document.addEventListener('mousedown', e => {
           shoots.push({x:player[0],y:player[1]});
-          var shotsound = new Audio('./sound/laser.ogg');
+          var shotsound = new Audio('');
           shotsound.volume = 0.05;
           shotsound.play();
         });
         player = [0,window.innerHeight/2];
-        var shotsound = new Audio('./sound/Panoramic-Atoms-1.ogg');
-        shotsound.volume = 0.05;
-        shotsound.play();
       })();
     </script>
   </body>
