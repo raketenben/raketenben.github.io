@@ -31,7 +31,7 @@
     <img src="./bilder/komet-explode-5.png" class="resource" id="commet6">
     <img src="./bilder/komet-explode-6.png" class="resource" id="commet7">
     <img src="./bilder/shoot-1.png" class="resource" id="shoot1">
-    <audio controls autoplay="true" loop volume=0.1 class="resource"><source src="./sound/Panoramic-Atoms-1.ogg" type="audio/ogg" ></audio>
+    <audio controls autoplay="true" loop class="resource" id="music"><source src="./sound/Panoramic-Atoms-1.ogg" type="audio/ogg" ></audio>
     <script type="text/javascript">
       (function(){
         const fps = 60;
@@ -99,6 +99,7 @@
           shotsound.play();
         });
         player = [0,window.innerHeight/2];
+        document.getElementById("music").volume = 0.05;
       })();
     </script>
   </body>
