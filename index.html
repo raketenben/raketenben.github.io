@@ -65,7 +65,7 @@
         }},100);
         var gameloop = setInterval(function(){
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-          draw(images.bg1,0,0,0,1);
+          ctx.drawImage(images.bg1,0,0,window.innerWidth,windows.innerHeight);
           for (var i = 0; i < shoots.length; i++) {
             shoots[i].x += shootSpeed;
             draw(images.shoot1,shoots[i].x,shoots[i].y,0,0.6);
