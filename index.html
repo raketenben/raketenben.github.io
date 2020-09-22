@@ -33,6 +33,7 @@
     <img src="./bilder/shoot-1.png" class="resource" id="shoot1">
     <script type="text/javascript">
       (function(){
+        var gameOver = false;
         const fps = 60;
         const commetSpeed = 8;
         const angleSpeed = 0.1;
@@ -88,13 +89,13 @@
           for (var i = 0; i < commets.length; i++) {
             if(player[0] + (images.pl1.width * 0.6 * 0.5) > commets[i].x && player[0] - (images.pl1.width * 0.6 * 0.5) < commets[i].x && player[1] + (images.pl1.height * 0.6 * 0.5) > commets[i].y && player[1] - (images.pl1.height * 0.6 * 0.5) < commets[i].y){
               alert("F5 zum neustarten");
-              clearInterval(gameloop);
+              gameOver = true;
           }}
           ctx.font = "30px monospace";
           ctx.fillStyle = "white";
           ctx.fillText(score,20,canvas.height-20);
           if (Math.random()*level<1) commets.push({x:window.innerWidth,y:Math.round(innerHeight*Math.random()),speedModifier:Math.random(),rotationModifier:Math.random(),angle:0,scale:0.4*Math.random()+0.4,hit:false,hitframe:1});
-          drawFrame();
+          if(!gameOver) drawFrame();
         };
         var start, end, diff;
         function drawFrame(){
