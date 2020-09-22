@@ -63,7 +63,7 @@
           if (commets[i].hit) commets[i].hitframe++;
           if (commets[i].hitframe > 7) commets.splice(i,1);
         }},100);
-        var gameloop = setInterval(function(){
+        var gameloop = function(){
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(images.bg1,0,0,window.innerWidth,window.innerHeight);
           for (var i = 0; i < shoots.length; i++) {
@@ -94,7 +94,19 @@
           ctx.fillStyle = "white";
           ctx.fillText(score,20,canvas.height-20);
           if (Math.random()*level<1) commets.push({x:window.innerWidth,y:Math.round(innerHeight*Math.random()),speedModifier:Math.random(),rotationModifier:Math.random(),angle:0,scale:0.4*Math.random()+0.4,hit:false,hitframe:1});
-        },1000/fps);
+          drawFrame();
+        };
+        var start, end, diff;
+        function drawFrame(){
+          end = new Date().getTime();
+          diff = end - start;
+          var calcfps = Math.round(1000/diff);
+          ctx.font = "30px monospace";
+          ctx.fillStyle = "white";
+          ctx.fillText("FPS: "+calcfps,20,50);
+          start = new Date().getTime();
+          window.requestAnimationFrame(gameloop);
+        }
         canvas.width = window.innerWidth, canvas.height = window.innerHeight;
       	document.onmousemove = getCursorXY;
         document.addEventListener('mousedown', e => {
@@ -104,6 +116,7 @@
           shotsound.play();
         });
         player = [0,window.innerHeight/2];
+        drawFrame();
       })();
     </script>
   </body>
