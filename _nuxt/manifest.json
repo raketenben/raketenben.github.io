@@ -1,0 +1,18 @@
+{
+  "node_modules/nuxt/dist/app/entry.mjs": {
+    "file": "entry-a88c4c7b.mjs",
+    "src": "node_modules/nuxt/dist/app/entry.mjs",
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/peerjs/dist/peerjs.esm.js"
+    ],
+    "css": [
+      "entry.15ae146c.css"
+    ]
+  },
+  "node_modules/peerjs/dist/peerjs.esm.js": {
+    "file": "peerjs.esm-ac99c839.mjs",
+    "src": "node_modules/peerjs/dist/peerjs.esm.js",
+    "isDynamicEntry": true
+  }
+}
